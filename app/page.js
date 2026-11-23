@@ -16,7 +16,7 @@ export default function Home() {
   const [active, setActive] = useState("Visão Geral");
 
   const cards = [
-    { label: "Acidentes com afastamento", value: "11", icon: "🚑", color: "danger" },
+{ label: "Acidentes oficiais em 2026", value: "11", icon: "🚑", color: "danger" },
     { label: "Incidentes registrados", value: "—", icon: "⚠️" },
     { label: "Colaboradores capacitados", value: "—", icon: "🎓" },
     { label: "Notificações aplicadas", value: "—", icon: "📋" }
@@ -93,7 +93,7 @@ export default function Home() {
 
                 <div style={{ marginTop: 25 }}>
                   <strong style={{ color: "#d64545" }}>
-                    11 acidentes com afastamento
+                    11 acidentes oficiais em 2026
                   </strong>
                   <div className="subtitle">
                     Total informado para 2026

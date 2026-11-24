@@ -187,18 +187,79 @@ export default function Home() {
           </>
         )}
 
-        {active !== "Visão Geral" && (
-          <section className="panel">
-            <h2>{active}</h2>
-            <p className="subtitle">
-              Área de gerenciamento de {active.toLowerCase()}.
-            </p>
-            <p>
-              Estamos preparando este módulo para permitir cadastros,
-              consultas, edição e acompanhamento dos registros.
-            </p>
-          </section>
-        )}
+{active === "Acidentes" && (
+  <>
+    <div className="cards">
+      <div className="card">
+        <div style={{ fontSize: 25 }}>🚑</div>
+        <div className="card-label">Acidentes com afastamento</div>
+        <div className="card-value danger">11</div>
+        <div className="subtitle">Total oficial de 2026</div>
+      </div>
+
+      <div className="card">
+        <div style={{ fontSize: 25 }}>🩹</div>
+        <div className="card-label">Acidentes sem afastamento</div>
+        <div className="card-value">—</div>
+        <div className="subtitle">Aguardando base validada</div>
+      </div>
+    </div>
+
+    <section className="panel" style={{ marginTop: 20 }}>
+      <h2>Histórico anual de acidentes</h2>
+      <p className="subtitle">
+        Comparativo dos totais oficiais registrados entre 2024 e 2026.
+      </p>
+
+      <div style={{
+        display: "flex",
+        alignItems: "flex-end",
+        justifyContent: "space-around",
+        height: 220,
+        padding: "25px 10px 10px",
+        gap: 25
+      }}>
+        {[
+          { ano: "2024", total: 46 },
+          { ano: "2025", total: 18 },
+          { ano: "2026", total: 11 }
+        ].map((item) => (
+          <div key={item.ano} style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            flex: 1,
+            height: "100%",
+            justifyContent: "flex-end"
+          }}>
+            <strong style={{ marginBottom: 8 }}>{item.total}</strong>
+            <div style={{
+              width: "65%",
+              maxWidth: 90,
+              height: `${(item.total / 46) * 140}px`,
+              background: "#1769aa",
+              borderRadius: "7px 7px 0 0"
+            }} />
+            <strong style={{ marginTop: 8 }}>{item.ano}</strong>
+          </div>
+        ))}
+      </div>
+    </section>
+  </>
+)}
+
+{active !== "Visão Geral" && active !== "Acidentes" && (
+  <section className="panel">
+    <h2>{active}</h2>
+    <p className="subtitle">
+      Área de gerenciamento de {active.toLowerCase()}.
+    </p>
+    <p>
+      Estamos preparando este módulo para permitir cadastros,
+      consultas, edição e acompanhamento dos registros.
+    </p>
+  </section>
+)}
 
         <footer style={{
           textAlign: "center",
